@@ -6,7 +6,6 @@ set showcmd
 set autoread
 set hidden
 
-
 "apperance
 "
 set number
@@ -36,13 +35,6 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 hi Comment ctermfg=2
 
-"cursorcolumn settings
-
-augroup vimrc-auto-cursorcolumn
-  autocmd!
-  autocmd CursorMoved,CursorMovedI,WinLeave * setlocal nocursorcolumn
-  autocmd CursorHold,CursorHoldI * setlocal cursorcolumn
-augroup END
 
 "dein vim settings
 
@@ -54,7 +46,7 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
   
-  call dein#load_toml('~/.config/nvim/dein.toml',{'lazy': 0})
+  call dein#load_toml('~/.vim/dein.toml',{'lazy': 0})
   
   call dein#end()
   call dein#save_state()

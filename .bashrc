@@ -135,5 +135,3 @@ if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
   PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - bash)"
