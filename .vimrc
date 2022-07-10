@@ -57,3 +57,28 @@ filetype plugin indent on
 if dein#check_install()
   call dein#install()
 endif
+
+"emmet-vim snippet
+"
+let g:user_emmet_settings = {
+      \  'variables' : {
+      \    'lang' : "en"
+      \  },
+      \  'html' : {
+      \    'indentation' : '  ',
+      \    'snippets' : {
+      \      'html:5': "<!DOCTYPE html>\n"
+      \        ."<html lang=\"${lang}\">\n"
+      \        ."<head>\n"
+      \        ."\t<meta charset=\"${charset}\">\n"
+      \        ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
+      \        ."\t<link rel=\"stylesheet\" href=\"./index.css\">\n"
+      \        ."\t<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\">\n"
+      \        ."\t<script src=\"\"></script>\n"
+      \        ."\t<title></title>\n"
+      \        ."</head>\n"
+      \        ."<body>\n\t${child}|\n</body>\n"
+      \        ."</html>",
+      \    }
+      \  }
+      \}
