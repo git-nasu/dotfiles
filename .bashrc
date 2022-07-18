@@ -94,6 +94,8 @@ fi
 #public alias setting
 
 alias shut='sudo shutdown -h now'
+alias server='ruby -r un -e  httpd . -p 8000'
+alias imac='ssh iMac'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -115,7 +117,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
 #PROMPT setting
 export PS1='\[\e[1;92m\][\u@\h \w]\n$ \[\e[0m\]'
 
@@ -125,13 +126,8 @@ cdls ()
   \cd "$@" && ls
 }
 alias cd="cdls"
+#mkdir->cd
 
-# powerline-shell settings
-
-function _update_ps1(){
-  PS1="$(/usr/local/bin/powerline-shell $?)\n$ "
+mk(){
+  mkdir "$1" && cd "$1" && pwd
 }
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
-

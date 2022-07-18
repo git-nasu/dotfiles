@@ -47,6 +47,7 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
   
   call dein#load_toml('~/.vim/dein.toml',{'lazy': 0})
+  "call dein#load_toml('~/.vim/dein_lazy.toml,{'lazy': 1})
   
   call dein#end()
   call dein#save_state()
@@ -82,3 +83,14 @@ let g:user_emmet_settings = {
       \    }
       \  }
       \}
+"vim-airline settings
+"
+set laststatus=1
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#buffer_idx_mode=1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.crypt  = '🔒'
+
