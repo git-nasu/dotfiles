@@ -30,6 +30,9 @@ set ignorecase
 set incsearch
 set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+"Esc ramapping...
+noremap <C-j> <esc>
+noremap! <C-j> <esc>
 
 "Comment Color Change
 
