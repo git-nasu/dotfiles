@@ -30,7 +30,8 @@ set ignorecase
 set incsearch
 set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
-"Esc ramapping...
+
+"Esc remapping...
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
 
@@ -78,6 +79,7 @@ let g:user_emmet_settings = {
       \        ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
       \        ."\t<link rel=\"stylesheet\" href=\"./index.css\">\n"
       \        ."\t<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\">\n"
+      \        ."\t<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css\">\n"
       \        ."\t<script src=\"\"></script>\n"
       \        ."\t<title></title>\n"
       \        ."</head>\n"
@@ -96,4 +98,5 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.crypt  = '🔒'
+
 
