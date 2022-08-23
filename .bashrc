@@ -131,3 +131,7 @@ alias cd="cdls"
 mk(){
   mkdir "$1" && cd "$1" && pwd
 }
+#ruby 2.7 rbenv  installed settings
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
