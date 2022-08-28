@@ -135,3 +135,14 @@ mk(){
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+#powerline-shell settings
+
+function _update_ps1(){
+  PS1="$(/usr/local/bin/powerline-shell $?)\n$ "
+}
+if [ "$TERM" != "linux" ]; then
+  PROMPT_COMMAN="_update_ps1: $PROMPT_COMMAND"
+fi
+
+
