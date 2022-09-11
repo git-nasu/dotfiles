@@ -1,3 +1,21 @@
 [user]
 	name = git-nasu
 	email = nasu301130@icloud.com
+
+[alias]
+  a = add -A
+  last = log -1 HEAD #only last commit
+  rb = rebase -i
+  cl = clone
+  st = status
+  df = diff
+  ds = diff --staged
+  dn = diff  --name-only
+  br = branch
+  line = log --oneline #one line log state
+  b = blame
+
+[core]
+  editor = vim
+  quotepath = false #moji bake
+
