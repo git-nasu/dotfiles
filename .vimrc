@@ -88,6 +88,8 @@ let g:user_emmet_settings = {
       \    }
       \  }
       \}
+
+
 "vim-airline settings
 "
 set laststatus=1
@@ -100,3 +102,16 @@ endif
 let g:airline_symbols.crypt  = '🔒'
 
 
+"added crtlp.vim settings
+"
+"
+set wildignore+=*/tmp/*,*.so,*.swp,*.Zip,*/vendor/*,*/\.git/*
+let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$\|.rvm$\|.bundle$\|vendor'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=25 
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlink=1
+let g:ctrlp_use_caching=1
+let g:ctrlp_clear_cache_on_exit=0
