@@ -97,6 +97,7 @@ alias shut='sudo shutdown -h now'
 alias server='ruby -r un -e  httpd . -p 8000'
 alias imac='ssh iMac'
 
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.

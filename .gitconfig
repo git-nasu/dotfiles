@@ -1,6 +1,5 @@
 [user]
-	name = git-nasu
-	email = nasu301130@icloud.com
+	name = git-nasu email = nasu301130@icloud.com
 
 [alias]
   a = add -A
