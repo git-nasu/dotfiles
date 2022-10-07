@@ -143,7 +143,7 @@ function _update_ps1(){
   PS1="$(/usr/local/bin/powerline-shell $?)\n$ "
 }
 if [ "$TERM" != "linux" ]; then
-  PROMPT_COMMAN="_update_ps1: $PROMPT_COMMAND"
+  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
 
