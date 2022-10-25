@@ -115,3 +115,5 @@ let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlink=1
 let g:ctrlp_use_caching=1
 let g:ctrlp_clear_cache_on_exit=0
+"Most Recently Used Files
+let g:ctrlp_cmd = 'CtrlPMRUFiles'
