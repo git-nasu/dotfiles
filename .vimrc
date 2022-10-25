@@ -5,7 +5,6 @@ set noswapfile
 set showcmd
 set autoread
 set hidden
-
 "apperance
 "
 set number
@@ -39,6 +38,16 @@ noremap! <C-j> <esc>
 
 hi Comment ctermfg=2
 
+"____________________________________________________________________
+
+"Coc Nvim Color Modified
+
+highlight Pmenu      cterm=none   ctermbg=236  ctermfg=none
+highlight PmenuSel   cterm=none   ctermbg=24   ctermfg=none
+
+"____________________________________________________________________
+
+
 
 "dein vim settings
 
@@ -62,6 +71,8 @@ filetype plugin indent on
 if dein#check_install()
   call dein#install()
 endif
+
+"____________________________________________________________________
 
 "emmet-vim snippet
 "
@@ -89,6 +100,8 @@ let g:user_emmet_settings = {
       \  }
       \}
 
+"____________________________________________________________________
+
 
 "vim-airline settings
 "
@@ -101,6 +114,8 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.crypt  = '🔒'
 
+
+"____________________________________________________________________
 
 "added crtlp.vim settings
 "
