@@ -4,6 +4,7 @@ set nobackup
 set noswapfile
 set showcmd
 set autoread
+set autowrite
 set hidden
 "apperance
 "
@@ -38,6 +39,9 @@ noremap! <C-j> <esc>
 
 hi Comment ctermfg=2
 
+"quote highlight color modified
+"
+hi MatchParen cterm=bold ctermbg=none ctermfg=green
 "____________________________________________________________________
 
 "Coc Nvim Color Modified
@@ -76,6 +80,7 @@ endif
 
 "emmet-vim snippet
 "
+let g:taglong_verbose = 1
 let g:user_emmet_settings = {
       \  'variables' : {
       \    'lang' : "en"
@@ -132,3 +137,11 @@ let g:ctrlp_use_caching=1
 let g:ctrlp_clear_cache_on_exit=0
 "Most Recently Used Files
 let g:ctrlp_cmd = 'CtrlPMRUFiles'
+
+
+"vim-script/vim-autosave settings
+"
+let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
+let g:auto_save_slient = 1
+let g:auto_save_no_updatetime = 1
