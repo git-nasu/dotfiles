@@ -40,46 +40,19 @@ noremap! <C-j> <esc>
 hi Comment ctermfg=2
 
 "quote highlight color modified
-"
+
 hi MatchParen cterm=bold ctermbg=none ctermfg=green
-"____________________________________________________________________
 
-"Coc Nvim Color Modified
+"-------------------------------------------------------------------
+"con nvim hightlight color modified
 
-highlight Pmenu      cterm=none   ctermbg=236  ctermfg=none
-highlight PmenuSel   cterm=none   ctermbg=24   ctermfg=none
+hi Pmenu cterm=none ctermbg=236 ctermfg=none
+hi Pmenusel cterm=none ctermbg=24 ctermfg=none
 
-"____________________________________________________________________
-
-
-
-"dein vim settings
-
-if &compatible
-  set nocompatible
-endif
-
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-  
-  call dein#load_toml('~/.vim/dein.toml',{'lazy': 0})
-  "call dein#load_toml('~/.vim/dein_lazy.toml,{'lazy': 1})
-  
-  call dein#end()
-  call dein#save_state()
-endif
-
-filetype plugin indent on
-
-if dein#check_install()
-  call dein#install()
-endif
 
 "____________________________________________________________________
-
 "emmet-vim snippet
-"
+
 let g:taglong_verbose = 1
 let g:user_emmet_settings = {
       \  'variables' : {
@@ -137,11 +110,19 @@ let g:ctrlp_use_caching=1
 let g:ctrlp_clear_cache_on_exit=0
 "Most Recently Used Files
 let g:ctrlp_cmd = 'CtrlPMRUFiles'
+"____________________________________________________________________
 
-
-"vim-script/vim-autosave settings
-"
-let g:auto_save = 1
-let g:auto_save_in_insert_mode = 0
-let g:auto_save_slient = 1
-let g:auto_save_no_updatetime = 1
+call plug#begin('~/.vim/plugged')
+  Plug 'neoclide/coc.nvim',{'branch': 'release'}
+  Plug 'tpope/vim-surround'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'mattn/emmet-vim'
+  Plug 'kien/ctrlp.vim'
+  Plug 'lambdalisue/fern.vim'
+  Plug 'othree/html5.vim'
+  Plug 'hail2u/vim-css3-syntax' "html5 css codesyntax
+  Plug 'alvan/vim-closetag' "html tag auto close
+  Plug 'pangloss/vim-javascript' 
+  Plug 'tomasr/molokai'
+call plug#end()
