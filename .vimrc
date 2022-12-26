@@ -1,5 +1,5 @@
-"pubic settings .vimrc
-set fenc=utf-8
+"
+"pubic settings .vimrc set fenc=utf-8 version: 3
 set nobackup
 set noswapfile
 set showcmd
@@ -29,7 +29,7 @@ set shiftwidth=2
 set ignorecase
 set incsearch
 set hlsearch
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+nmap Esc<Esc> :nohlsearch<CR><Esc>
 
 "back to normal mode
 inoremap <silent> jj <Esc>
@@ -151,6 +151,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'maxmellon/vim-jsx-pretty', {'for': ['javascript','javascript.jsx']}
   Plug 'yuezk/vim-js' "with vim-jsx-pretty
   Plug 'tpope/vim-fugitive' "vim git
+  Plug 'stephpy/vim-yaml' "yaml file indent
+  Plug 'elel-dev/vim-astro-syntax' "astro syntax"
 call plug#end()
 
 "vim-closetag settings
