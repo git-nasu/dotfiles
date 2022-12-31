@@ -1,6 +1,5 @@
 "
-"pubic settings .vimrc set fenc=utf-8 version: 3
-set nobackup
+"pubic settings .vimrc set fenc=utf-8 version: 3 set nobackup
 set noswapfile
 set showcmd
 set autoread
@@ -29,7 +28,7 @@ set shiftwidth=2
 set ignorecase
 set incsearch
 set hlsearch
-nmap Esc<Esc> :nohlsearch<CR><Esc>
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 "back to normal mode
 inoremap <silent> jj <Esc>
@@ -153,8 +152,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive' "vim git
   Plug 'stephpy/vim-yaml' "yaml file indent
   Plug 'elel-dev/vim-astro-syntax' "astro syntax"
+  Plug 'prettier/vim-prettier',{ 'do': 'yarn install','for': ['javascript', 'typescript','css','less','scss', 'json', 'graphql', 'markdown', 'jsx','vue', 'yaml', 'html'] }
 call plug#end()
 
 "vim-closetag settings
 "
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.js,*.jsx'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.js,*.jsx,*.astro,*.vue'
+
+
+"Fern settings ctrl + n  display filer  or not filer
+"
+nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+autocmd FileType javascript  nested Fern . -reveal=% -drawer
