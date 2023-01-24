@@ -1,16 +1,16 @@
-"
 "pubic settings .vimrc set fenc=utf-8 version: 3 set nobackup
 set noswapfile
 set showcmd
 set autoread
-set autowrite
+set autowrite 
 set hidden
 
 "apperance
 "
-set number
+
+set number 
 set virtualedit=onemore
-"set smartindent
+set smartindent
 set autoindent
 set laststatus=2
 nnoremap j gj
@@ -25,7 +25,7 @@ set shiftwidth=2
 
 "searching
 "
-set ignorecase
+set noignorecase
 set incsearch
 set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
@@ -52,6 +52,21 @@ let g:vim_jsx_pretty_colorful_config = 1
 
 hi Pmenu cterm=none ctermbg=236 ctermfg=none
 hi Pmenusel cterm=none ctermbg=24 ctermfg=none
+
+"coc nvim autocompletions
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col-1] =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Enter> coc#pum#visible() ? coc#pum#confirm() : "\<Enter>"
+inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#pum#next(1):
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? con#pum#prev(1) : "\<S-TAB>" " "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
+
 
 "____________________________________________________________________
 "emmet-vim snippet
@@ -159,8 +174,9 @@ call plug#end()
 "
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.js,*.jsx,*.astro,*.vue'
 
-
 "Fern settings ctrl + n  display filer  or not filer
 "
-nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
-autocmd FileType javascript  nested Fern . -reveal=% -drawer
+nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=35<CR>
+"autocmd FileType javascript  nested Fern . -reveal=% -drawer
+"
+
