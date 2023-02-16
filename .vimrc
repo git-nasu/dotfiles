@@ -1,16 +1,14 @@
-"
 "pubic settings .vimrc set fenc=utf-8 version: 3 set nobackup
 set noswapfile
 set showcmd
 set autoread
-set autowrite
+set autowrite 
 set hidden
 
 "apperance
-"
-set number
+set number 
 set virtualedit=onemore
-"set smartindent
+set smartindent
 set autoindent
 set laststatus=2
 nnoremap j gj
@@ -18,28 +16,31 @@ nnoremap k gk
 syntax enable
 
 "tab
-"
 set expandtab
 set tabstop=2
 set shiftwidth=2
 
 "searching
-"
-set ignorecase
+set noignorecase
 set incsearch
 set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+"undo persistent
+if has('persistent_undo')
+  let undo_path = expand('~/.vimrc/undo')
+  exe 'set undodir=' .. undo_path
+  set undofile
+endif
 
 "back to normal mode
 inoremap <silent> jj <Esc>
 
 
 "Comment Color Change
-
 hi Comment ctermfg=2
 
 "quote highlight color modified
-
 hi MatchParen cterm=bold ctermbg=none ctermfg=green
 
 "__________________________________________________________________
@@ -52,6 +53,21 @@ let g:vim_jsx_pretty_colorful_config = 1
 
 hi Pmenu cterm=none ctermbg=236 ctermfg=none
 hi Pmenusel cterm=none ctermbg=24 ctermfg=none
+
+"coc nvim autocompletions
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col-1] =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Enter> coc#pum#visible() ? coc#pum#confirm() : "\<Enter>"
+inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#pum#next(1):
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? con#pum#prev(1) : "\<S-TAB>" " "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
+
 
 "____________________________________________________________________
 "emmet-vim snippet
@@ -70,9 +86,9 @@ let g:user_emmet_settings = {
       \        ."\t<meta charset=\"${charset}\">\n"
       \        ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
       \        ."\t<link rel=\"stylesheet\" href=\"./index.css\">\n"
-      \        ."\t<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\">\n"
+      \        ."\t<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net.npm/bootstrap@5.0.2/dist/css/bootstrap.min.css\">\n"
       \        ."\t<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css\">\n"
-      \        ."\t<script src=\"\"></script>\n"
+      \        ."\t<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js\"></script>\n"
       \        ."\t<title></title>\n"
       \        ."</head>\n"
       \        ."<body>\n\t${child}|\n</body>\n"
@@ -108,6 +124,8 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.crypt  = '🔒'
 
+
+
 "____________________________________________________________________
 "fern-vim settings
 
@@ -130,6 +148,9 @@ let g:ctrlp_user_command = [
 let g:ctrlp_clear_cache_on_exit=0
 "Most Recently Used Files
 let g:ctrlp_cmd = 'CtrlPMRUFiles'
+
+
+
 
 "vim-plug settings
 "____________________________________________________________________
@@ -154,13 +175,34 @@ call plug#begin('~/.vim/plugged')
   Plug 'elel-dev/vim-astro-syntax' "astro syntax"
   Plug 'prettier/vim-prettier',{ 'do': 'yarn install','for': ['javascript', 'typescript','css','less','scss', 'json', 'graphql', 'markdown', 'jsx','vue', 'yaml', 'html'] }
 call plug#end()
+"_____________________________________________________________________
+
+
 
 "vim-closetag settings
-"
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.js,*.jsx,*.astro,*.vue'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.js,*.jsx,*.astro,*.vue,*.py'
+
+
 
 
 "Fern settings ctrl + n  display filer  or not filer
-"
-nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
-autocmd FileType javascript  nested Fern . -reveal=% -drawer
+nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=35<CR>
+"autocmd FileType javascript  nested Fern . -reveal=% -drawer
+
+
+
+"vp doesn't replace paste buffer
+function! RestoreRegister()
+  let @" = s: restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
+
+
+
+
+
