@@ -6,11 +6,6 @@ set autowrite
 set hidden
 
 "apperance
-<<<<<<< HEAD
-=======
-"
-
->>>>>>> 7d95de8168061317b75ba1b38ed838f6286c1161
 set number 
 set virtualedit=onemore
 set smartindent
@@ -26,10 +21,6 @@ set tabstop=2
 set shiftwidth=2
 
 "searching
-<<<<<<< HEAD
-=======
-"
->>>>>>> 7d95de8168061317b75ba1b38ed838f6286c1161
 set noignorecase
 set incsearch
 set hlsearch
@@ -194,7 +185,6 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.js,*.jsx,*.astr
 
 
 "Fern settings ctrl + n  display filer  or not filer
-<<<<<<< HEAD
 nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=35<CR>
 "autocmd FileType javascript  nested Fern . -reveal=% -drawer
 
@@ -211,13 +201,10 @@ function! s:Repl()
 endfunction
 vmap <silent> <expr> p <sid>Repl()
 
-
-
-
-=======
+"______________________________________________________________________
 "
+
 nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=35<CR>
 "autocmd FileType javascript  nested Fern . -reveal=% -drawer
 "
->>>>>>> 7d95de8168061317b75ba1b38ed838f6286c1161
 
