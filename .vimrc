@@ -208,3 +208,10 @@ nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=35<CR>
 "autocmd FileType javascript  nested Fern . -reveal=% -drawer
 "
 
+"json format under vim 
+"
+function! JsonFormat()
+  set filetype=json
+  :%!jq '.'
+endfunction
+command Json :call JsonFormat()
