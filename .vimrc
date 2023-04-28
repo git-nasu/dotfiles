@@ -11,9 +11,14 @@ set virtualedit=onemore
 set smartindent
 set autoindent
 set laststatus=2
+set termguicolors
+set background=dark
+
+
 nnoremap j gj
 nnoremap k gk
 syntax enable
+colorscheme catppuccin_mocha "color scheme
 
 "tab
 set expandtab
@@ -35,6 +40,8 @@ endif
 
 "back to normal mode
 inoremap <silent> jj <Esc>
+"select all
+nnoremap <silent> <C-a> ggVG
 
 
 "Comment Color Change
@@ -47,27 +54,6 @@ hi MatchParen cterm=bold ctermbg=none ctermfg=green
 "vim_jsx_pretty settings
 
 let g:vim_jsx_pretty_colorful_config = 1
-
-"-------------------------------------------------------------------
-"con nvim hightlight color modified
-
-hi Pmenu cterm=none ctermbg=236 ctermfg=none
-hi Pmenusel cterm=none ctermbg=24 ctermfg=none
-
-"coc nvim autocompletions
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col-1] =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Enter> coc#pum#visible() ? coc#pum#confirm() : "\<Enter>"
-inoremap <silent><expr> <TAB>
-  \ coc#pum#visible() ? coc#pum#next(1):
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? con#pum#prev(1) : "\<S-TAB>" " "\<C-h>"
-inoremap <silent><expr> <c-space> coc#refresh()
-
 
 "____________________________________________________________________
 "emmet-vim snippet
@@ -119,6 +105,8 @@ let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#tabline#show_close_button = 0
 
+let g:airline_theme = 'catppuccin_mocha'
+
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -126,10 +114,6 @@ let g:airline_symbols.crypt  = '🔒'
 
 
 
-"____________________________________________________________________
-"fern-vim settings
-
-nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 
 "added crtlp.vim settings
 "____________________________________________________________________
@@ -156,38 +140,42 @@ let g:ctrlp_cmd = 'CtrlPMRUFiles'
 "____________________________________________________________________
 
 call plug#begin('~/.vim/plugged')
-  Plug 'neoclide/coc.nvim',{'branch': 'release'} "language-server-protocol
   Plug 'tpope/vim-surround' "text object extensions plug
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'mattn/emmet-vim'
   Plug 'kien/ctrlp.vim' "fuzzy finder
   Plug 'lambdalisue/fern.vim' "filer
+  Plug 'lambdalisue/nerdfont.vim'
+  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'othree/html5.vim'
   Plug 'hail2u/vim-css3-syntax' "html5 css codesyntax
   Plug 'alvan/vim-closetag' "html tag auto close
-  Plug 'tomasr/molokai'
   Plug 'cohama/lexima.vim'
   Plug 'maxmellon/vim-jsx-pretty', {'for': ['javascript','javascript.jsx']}
   Plug 'yuezk/vim-js' "with vim-jsx-pretty
   Plug 'tpope/vim-fugitive' "vim git
   Plug 'stephpy/vim-yaml' "yaml file indent
-  Plug 'elel-dev/vim-astro-syntax' "astro syntax"
+  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
   Plug 'prettier/vim-prettier',{ 'do': 'yarn install','for': ['javascript', 'typescript','css','less','scss', 'json', 'graphql', 'markdown', 'jsx','vue', 'yaml', 'html'] }
 call plug#end()
 "_____________________________________________________________________
-
 
 
 "vim-closetag settings
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.js,*.jsx,*.astro,*.vue,*.py'
 
 
-
+"---------------------------------------------------------------------
 "Fern settings ctrl + n  display filer  or not filer
 nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=35<CR>
 "autocmd FileType javascript  nested Fern . -reveal=% -drawer
 
+"Fern plugin setting
+let g:fern#default_hidden=1
+let g:fern#renderer = 'nerdfont'
+let g:fern#renderer#nerdfont#indent_markers=1
+"---------------------------------------------------------------------
 
 
 "vp doesn't replace paste buffer
@@ -202,10 +190,6 @@ endfunction
 vmap <silent> <expr> p <sid>Repl()
 
 "______________________________________________________________________
-"
-
-nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=35<CR>
-"autocmd FileType javascript  nested Fern . -reveal=% -drawer
 "
 
 "json format under vim 

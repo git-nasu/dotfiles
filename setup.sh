@@ -1,7 +1,7 @@
-DOTFILES_REPO="$HOME/.dotfiles"
+DOTFILES_REPO="$HOME/dotfiles"
 if [ ! -e "$DOTFILES_REPO" ];then
   echo 'Cloning Dotfiles_Repo From GitHub ....'
-  git clone https://github.com/git-nasu/dotfiles.git
+  git clone https://github.com/git-nasu/dotfiles.giti ~/dotfiles
 fi
 
 cd "$DOTFILES_REPO"
