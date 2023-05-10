@@ -5,7 +5,7 @@ if [ ! -e "$DOTFILES_REPO" ];then
 fi
 
 cd "$DOTFILES_REPO"
-git ls-files | grep -e '^\.' | while read DOTFILE; do
+git ls-files | grep -e '^\.' | while read DOTFILE; do #  -e PATTERNS, --regexp=PATTERNS
  echo "Pasting Symbolic Link ... $DOTFILE"
  ln -sf "$DOTFILES_REPO/$DOTFILE" "$HOME/$DOTFILE"
 done
