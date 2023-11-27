@@ -91,11 +91,9 @@ fi
 #alias ll='ls -l'
 #alias la='ls -A'
 #alias l='ls -CF'
-#public alias setting
 
+#public alias setting
 alias shut='sudo shutdown -h now'
-alias server='ruby -r un -e  httpd . -p 8000'
-alias imac='ssh iMac'
 
 
 # Alias definitions.
@@ -119,7 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 #PROMPT setting
-export PS1='\[\e[1;92m\][\u@\h \w]\n$ \[\e[0m\]'
+export PS1='\[\e[1;92m\][\h@\w]\n>> \[\e[0m\]'
 
 #cd->ls
 cdls ()
@@ -127,12 +125,12 @@ cdls ()
   \cd "$@" && ls
 }
 alias cd="cdls"
-#mkdir->cd
 
+#mkdir->cd
 mk(){
   mkdir "$1" && cd "$1" && pwd
 }
-#ruby 2.7 rbenv  installed settings
+#ruby settings
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
