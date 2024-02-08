@@ -143,6 +143,3 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 #rbenv settings
 eval "$(~/.rbenv/bin/rbenv init - zsh)"
-#deno settings
-export DENO_INSTALL="/home/nasu03/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
