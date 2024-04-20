@@ -78,20 +78,22 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting z)
+
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-myzsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 #
-alias vim='nvim'
+#alias vim='nvim'
 alias shut='sudo shutdown -h now'
-alias ll='exa --group-directories-first -a --icons'
-alias la='exa -a --icons'
+alias ll='eza --group-directories-first -a --icons'
+alias la='eza --tree --level=2 -a --icons'
 alias Up='tmux resize-pane -U 13'
 alias vimf='vim $(fzf)'
-alias bat='batcat'
+#alias bat='batcat'
 
-#automatically cd->ls
+#public function
+
 function chpwd(){
   if [[ $(pwd) != $HOME ]]; then;
     ls
@@ -133,7 +135,7 @@ autoload mk
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #brew settings
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 #brew no automatically update
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -141,5 +143,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
+
 #rbenv settings
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
+#eval "$(~/.rbenv/bin/rbenv init - zsh)"
